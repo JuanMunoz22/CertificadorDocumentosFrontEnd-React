@@ -1,0 +1,1622 @@
+:root
+{
+    --blue: #287bff;
+    --blue2: #001936;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --red: #F52A18;
+    --orange: #F59D00;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+html{
+    overflow-y: auto;
+}
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(193deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 35%, rgba(0,121,255,1) 100%); 
+    overflow: hidden;
+}
+
+/*ESTILOS NAVBAR*/
+nav{
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 8 5%;
+    height: 100px;
+    background-color: var(--blue2) ;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+nav .logo{
+    float: left;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin-left: 1vw;
+    opacity: 1;
+}
+
+nav .logo a{
+    color: var(--white);
+    text-decoration: none;
+} 
+
+nav .links{
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .links .items{
+    display: block;
+    padding: 1em;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+}
+
+#nav-toggle{
+    position: absolute;
+    top: -180px;
+}
+
+nav .iconNav{
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-58%);
+}
+
+nav .iconNav .line{
+    width: 30px;
+    height: 5px;
+    background-color: var(--white);
+    margin: 5px;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+/*FIN ESTILOS NAVBAR*/
+
+/*ESTILOS SIDEBAR*/
+.containerUser{
+    position: relative;
+    width: 100%;
+}
+
+.navigationUser{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigationUser.active{
+    width: 80px;
+}
+
+.navigationUser ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-left: -27px;
+}
+
+.navigationUser ul li{
+    position: relative;
+    width: 110%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigationUser ul li:hover{
+/*.navigationUser ul li:hovered{*/
+    background: var(--white);
+}
+
+.navigationUser ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigationUser ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+
+}
+
+.navigationUser ul li:hover a{
+/*.navigationUser ul li:hovered a{*/
+    color: var(--blue);
+}
+
+.navigationUser ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigationUser ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+
+.navigationUser ul li a .tittle{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigationUser ul li a .tittleName{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-size: .9em;
+}
+
+/*CURVE OUTSIDE*/
+.navigationUser ul li:hover a::before{
+/*.navigationUser ul li:hovered a::before{*/
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigationUser ul li:hover a::after{
+/*.navigationUser ul li:hovered a::after{*/
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigationUser.active ul li:hover a::before{
+    position: absolute;
+    box-shadow: 0px 0px 0px 0px transparent;
+}
+
+.navigationUser.active ul li:hover a::after{
+    position: absolute;
+    box-shadow: 35px -35px 0 10px transparent;
+}
+
+
+.navigationUser.active ul li:hover{
+        width: 100vw;
+    }
+
+/*MAIN*/
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 5vh;
+    background: var(--blue);
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+.user{
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*FIN ESTILOS SIDEBAR*/
+
+/*DASHBOARD*/
+
+.dashboard{
+    float: right;
+    width: 90vw;
+    height: 100vh;
+    margin-top: 7%;
+}
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: (4,1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .cardUser{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+}
+
+.cardBox .cardUser .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--blue);
+}
+
+.cardBox .cardUser .cardName{
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .cardUser .iconBx{
+    font-size: 3.5em;
+    color: var(--black2);
+}
+
+.cardBox .cardUser:hover{
+    background-color: var(--blue);
+}
+
+.cardBox .cardUser:hover .numbers,
+.cardBox .cardUser:hover .cardName,
+.cardBox .cardUser:hover .iconBx{
+    color: var(--white);
+}
+/*FIN ESTILOS DASHBOARD*/
+
+/*PROTECT HISTORY*/
+.historyProtect{
+    background-color: var(--black1);
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 6%;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    color: var(--white);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+
+}
+
+.historyProtect h4{
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.history{
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.history table{
+    width: 70vw;
+    margin:  0 auto;
+    background-color: var(--white);
+    box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.2);   
+
+}
+
+.history table thead{
+    background-color: var(--black2);
+    color: var(--blue2);
+    font-weight: bold;
+    text-align: justify;
+}
+
+.history table thead tr th{
+    border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.history table tbody tr td{
+    color: var(--black1);
+}
+
+.history table tbody tr:hover{
+    background-color: var(--black2);
+}
+
+.history table tbody tr td a ion-icon{
+    font-size: 1.5em;
+    color: var(--black1);
+}
+
+.history table tbody tr td a ion-icon:hover{
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.pagination{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+/*FIN ESTILOS PROTECT HISTORY*/
+
+/*HOME PAGE*/
+
+.principal{
+    margin: 0 auto;
+    margin-top: 8%;
+    width: 90%;
+}
+
+.principal img{
+    float: left;
+    height: 70%;
+    margin: 0;
+}
+
+.principal h1{
+    font-size: 65px;
+    font-weight: bold;
+    margin-top: 5%;
+
+    color: var(--white);
+}
+
+.principal h1 strong{
+    color: var(--orange);
+}
+
+.principal p{
+    color: var(--white);
+    font-size: 15px;
+    width: 60%;
+}
+
+.principal a{
+    display: block;
+    margin-top: 0;
+    width: 80%;
+    background-color: var(--orange);
+    color: var(--blue2);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.why{
+    background-color: var(--blue2);
+    margin: 0 auto;
+    margin-top: 12%;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.08) ;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.why h2{
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.why p{
+    color: var(--white);
+    text-align: justify;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.servicios{
+    width: 18rem;
+    background-color: var(--blue2);
+    border-radius: 5px;
+}
+
+.servicios img{
+    width: 100%;
+    height: 300px;
+}
+
+.servicios h5{
+    color: var(--orange);
+}
+
+.servicios p{
+    color: var(--white);
+}
+
+/*FIN ESTILOS HOME PAGE*/
+
+/*FORMULARIOS*/
+
+.formulario{
+    margin: 0 auto;
+    margin-top: 12%;
+    border-radius: 20px;
+    width: 50%;
+    background-color: rgba(0,0,0,0.8);
+    color: var(--white);
+    border: 1px solid rgba(0,0,0,0.08) ;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.form{
+    margin: 0 auto;
+    height: 55vh;
+}
+
+.formulario h3{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login{
+    width: 30%;
+}
+
+.login h3{
+    font-weight: bold;
+}
+
+.btnLogin button{
+    background-color: var(--orange);
+    margin: 0 auto;
+    width: 100%;
+    color: var(--blue2);
+    border: none;
+    font-weight: bold;
+}
+
+.formLogin{
+    margin: 0 auto;
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 9%;
+}
+
+
+.btnRegistrar button{
+    margin: 0 auto;
+    width: 100%;
+    background-color: var(--orange);
+    color: var(--blue2);
+    font-weight: bold;
+    border: none;
+}
+
+.registro h3{
+    font-weight: bold;
+}
+/*FIN FORMULARIOS*/
+
+/*PROTECT SCREEN*/
+.protect-zone{
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 70%;
+    height: 100vh;
+}
+
+.dropZone{
+    margin-left: 12%;
+    background-color: var(--black1);
+    border-radius: 20px;
+    border: 5px dashed var(--white);
+    width: 100%;
+    height: 80vh;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.dropZone p{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--white);
+    margin-top: 20%;
+    margin-bottom: 2%;
+}
+
+
+
+#btnProtect{
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 25%;
+    width: 30%;
+    height: 5vh;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#infoZone{
+    width: 80vw;
+    height: 80vh;
+    font-size: 1.2em;
+    background-color: var(--black1);
+}
+
+#infoZone h4{
+    text-align: center;
+    padding: 15px;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+#infoZone strong{
+    color: #F59D00;
+    margin-left: 15px;
+}
+
+#infoZone p{
+    color: var(--white);
+}
+
+#infoZone ion-icon{
+    color: var(--orange);
+    font-size: 5em;
+}
+
+#infoZone ion-icon:hover{
+    color: var(--white);
+}
+
+
+/*FIN ESTILOS PROTECT SCREEN*/
+
+/*VERIFY SCREEN*/
+.verify{
+    height: 100vh;
+}
+
+.dropZone-verify{
+    margin: 0 auto;
+    margin-top: 7%;
+    margin-left: 26%;
+    width: 60vw;
+    height: 80vh;
+    border-radius: 20px;
+    background-color: var(--black1);
+    padding: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.dropZone-verify h3{
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15%;
+}
+
+.formVerify{
+    margin-top: 5%;
+}
+
+.dropZone-verify p{
+    color: var(--white);
+    text-align: center;
+    margin-top: 1%;
+    cursor: pointer;
+}
+
+#btnVerify{
+    color: var(--white);
+    background-color: var(--blue);
+    margin-top: 25%;
+    width: 30%;
+    height: 5vh;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+/*FIN ESTILOS VERIFY SCREEN*/
+
+/*VERIFY PUBLIC SCREEN*/
+
+.verifyPublic{
+    border: 5px dashed var(--white);
+    height: 70vh;
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-left: 25%;
+    background-color: var(--blue2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.verifyPublic h3{
+    color: var(--white);
+    margin-top: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.verifyPublic p{
+    color: var(--white);
+    text-align: center;
+    margin-top: 1%;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.verifyPublic ion-icon, .dropZone-verify ion-icon, .dropZone ion-icon{
+    font-size: 10em;
+    color: var(--orange);
+    margin-top: 5%;
+    display: none;
+}
+
+/*FIN ESTILOS VERIFY PUBLIC SCREEN*/
+
+/*VERIFY HASH PUBLIC SCREEN*/
+
+.VerifyHashPublic{
+    background-color: var(--blue2);
+    height: 50vh;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 27%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+
+}
+
+.VerifyHashPublic h3{
+    color: var(--white);
+    font-weight: bold;
+    text-align: center;
+    font-size: 2em;
+    padding: 40px;
+}
+
+.inputText{
+    font-size: 1.5em;
+    padding: 5px;
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.btnHash{
+    background-color:var(--blue);
+    width: 70vw;
+    margin: 0 auto;
+    color: var(--white);
+    font-size: 1.5em;
+    margin-top: 10%;
+    font-weight: bold;
+}
+
+.btnHash:hover{
+    background-color: var(--orange);
+}
+/*FIN ESTILOS VERIFY HASH PUBLIC SCREEN*/
+
+/*CONFIG SCREEEN*/
+.config{
+    height: 100vh;
+}
+
+.updateUSer{
+    background-color: var(--black1);
+    width: 60vw;
+    height: 80vh;
+    margin: 0 auto;
+    margin-top: 5%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+    display: block;
+}
+
+.formularioUpdate h3{
+    margin-top: 5%;
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+}
+
+.formularioUpdate{
+    margin-left: 20%;
+    margin-top: 7%;
+    text-align: start;
+}
+
+.formularioUpdate label{
+    color: var(--white);
+    margin-top: 2%;
+}
+
+.formularioUpdate img{
+    border-radius: 100%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 10vw;
+    margin-top: 1%;
+    cursor: pointer;
+}
+
+.passwordBtn{
+    margin: 0 auto;
+    margin-top: 55%;
+    width: 20vw;
+    text-decoration: none;
+}
+/*FIN ESTILOS CONFIG SCREEN*/
+
+/*UPDATE SCREEN*/
+.containerUpdatePassword{
+    height: 100vh;
+}
+.updatePassword{
+    background-color: var(--black1);
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.updatePassword h3{
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+}
+
+.updatePassword label{
+    color: var(--white);
+    margin-top: 5%;
+}
+
+.updatePassword button{
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+    margin-top: 5%;
+}
+/*FIN ESTILOS UPDATE SCREEN*/
+
+/*UPDATE IMG SCREEN*/
+.containerUpdateImg{
+    height: 100vh;
+}
+
+.updateImg{
+    background-color: var(--black1);
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 20px;
+    padding: 50px;
+    color: var(--white);
+}
+
+.updateImg h3{
+    font-weight: bold;
+    text-align: center;
+}
+
+.updateImg label{
+    font-size: 1.2em;
+    margin-top: 5%;
+}
+
+.btnImg{
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 30vw;
+    font-size: 1.2em;
+}
+
+
+/*FIN ESTILOS IMG SCREEN*/
+
+/*VALIDAR EMAIL*/
+.validarEmail{
+    background-color: rgba(40, 123, 255, .3);
+    margin: 0 auto;
+    margin-top: 15%;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 20px;
+}
+
+.validarEmail h4{
+    margin-top: 5%;
+    color: var(--white);
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.validarEmail ion-icon{
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 9em;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.validarEmail p{
+    color: var(--white);
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+.validarEmail a{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10%;
+    color: var(--blue2);
+    text-decoration: none;
+    background-color: var(--orange);
+    width: 30vw;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+/*FIN ESTILOS VALIDAR EMAIL*/
+
+
+/*FOOTER*/
+.footer{
+    margin-top: 5%;
+    height: 50px;
+    background-color: #F59D00;
+}
+
+.footer p{
+    color: var(--black1);
+    font-size: 20px;
+    text-align: center;
+    justify-content: space-around;
+}
+
+/*FIN ESTILOS FOOTER*/
+
+/*RESPONSIVE*/
+@media screen and (max-width: 1366px) {
+     /*HOME PAGE*/
+    .principal img{
+        margin-left: 25%;
+    }
+    /*FIN ESTILOS HOME PAGE*/   
+    
+    /*VERIFY PUBLIC SCREEN*/
+    .verifyPublic{
+        margin-top: 15%;
+    }
+    /*FIN ESTILOS VERIFY PUBLIC SCREEN*/
+
+    /*VERIFY HASH PUBLIC SCREEN*/
+    .VerifyHashPublic{
+        margin-top: 13%;
+    }
+    /*FIN ESTILOS HASH PUBLIC*/  
+
+
+    /*FORMULARIO LOGIN*/
+    .login{
+        margin-top: 16%;
+    }
+    /*FIN ESTILOS FORMULARIO LOGIN*/
+
+    /*FORMULARIO REGISTRO*/
+    .form{
+        margin-top: 9%;
+    }
+    /*FIN ESTILOS FORMULARIO REGISTRO*/
+
+    
+    /*SIDEBAR*/
+    .navigationUser{
+        z-index: 1000;
+    }
+    /*FIN ESTILOS SIDEBAR*/
+
+    
+    /*CONFIG SCREEN*/
+    .config{
+        margin-top: 7%;
+    }
+    /*FIN ESTILOS CONFIG SCREEN*/
+
+    /*UPDATE SCRREN*/
+    .updatePassword{
+        margin-top: 8%;
+    }
+    /*FIN ESTILOS UPDATE SCREEN*/
+
+    /*PROTECT SCREEN*/
+    .protect-zone{
+        margin-top: 8%;
+    }
+    /*FIN ESTILOS PROTECT SCREEN*/
+}
+
+@media screen and (max-width: 998px) {
+    /*HOME PAGE*/
+
+    .principal{
+        margin-top: 12%;
+    }
+
+    .principal img{
+        float: right;
+        height: 50%;
+    }
+
+    .principal h1{
+        font-size: 45px;
+    }
+
+
+    .principal p{
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .principal a{
+        margin: 0 auto;
+    }
+
+    /*FIN ESTILOS HOME PAGE*/ 
+
+    /*VERIFY PUBLIC SCREEN*/
+    .verifyPublic{
+        margin-top: 19%;
+    }
+    /*FIN ESTILOS VERIFY PUBLIC SCREEN*/
+
+    /*VERIFY HASH PUBLIC SCREEN*/
+    .VerifyHashPublic{
+        margin-top: 16%;
+    }
+    /*FIN ESTILOS HASH PUBLIC*/  
+
+    /*FORMULARIO LOGIN*/
+    .login{
+        margin-top: 15%;
+        margin-bottom: 13%;
+        width: 40%;
+    }
+    /*FIN ESTILOS FORMULARIO LOGIN*/
+
+    /*FORMULARIO REGISTRO*/
+    .form{
+        margin: 0 auto;
+        height: 60vh;
+        margin-bottom: 15%;
+        margin-top: 5%;
+    }
+    /*FIN ESTILOS FORMULARIO REGISTRO*/
+
+    /*SIDEBAR*/
+    .navigationUser{
+        left: -300px;
+        z-index: 1000;
+    }
+
+    .navigationUser.active{
+        width: 300px;
+        left: 0;
+    }
+
+    .main{
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active{
+        left: 300px;
+    }
+    /*FIN ESTILOS SIDEBAR*/
+
+    /*DASHBOARD*/
+    .dashboard{
+        width: 100vw;
+    }
+    /*FIN ESTILOS DASHBOARD*/
+
+    /*PROTECT HISTORY*/
+    .historyProtect{
+        margin-top: 10%;
+    }
+
+    .history table{
+        width: 10vw;
+        font-size: .7em;
+    }
+    /*FIN ESTILOS PROTECT HISTORY*/
+
+    /*CONFIG SCREEN*/
+    .config{
+        margin-top: 10%;
+    }
+
+    .formularioUpdate img{
+        margin-top: 5%;
+        width: 25vw;
+    }
+
+    #infoZone{
+        font-size: 1em;
+    }
+
+    /*FIN ESTILOS CONFIG SCREEN*/
+
+    /*UPDATE SCRREN*/
+    .updatePassword{
+        margin-top: 10%;
+    }
+    /*FIN ESTILOS UPDATE SCREEN*/
+}
+
+@media screen and (max-width: 768px) {
+
+    /*ESTILOS NAVBAR*/
+    nav .logo{
+        float: none;
+        width: auto;
+        justify-content: center;
+    }
+
+    nav .links{
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100%;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: rgba(0, 0, 0, .8);
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+     }
+
+     nav .links .items{
+        font-size: 20px;
+    }
+    
+    nav :checked ~ .links{
+        bottom: 0;
+    }
+
+    nav .iconNav{
+        display: block;
+    }
+    
+    nav :checked ~ .iconNav .line:nth-child(1){
+        transform: translateY(10px) rotate(225deg);
+    }
+
+    nav :checked ~ .iconNav .line:nth-child(3){
+        transform: translateY(-10px) rotate(-225deg);
+    }
+
+    nav :checked ~ .iconNav .line:nth-child(2){
+        opacity: 0;
+    }
+
+    /*FIN ESTILOS NAVBAR*/
+
+    /*HOME PAGE*/
+
+    .principal{
+        margin-top: 15%;
+    }
+
+    .principal img{
+        float: none;
+        margin: 0 auto;
+        display: block;
+        margin-top: 22px;
+    }
+
+    .principal h1{
+        font-size: 65px;
+    }
+
+    .principal a{
+        margin: 0 auto;
+    }
+
+
+    .groupServices{
+        display: block;
+    }
+
+    .servicios{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .servicios img{
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    /*FIN ESTILOS HOME PAGE*/
+
+    /*VERIFY PUBLIC SCREEN*/
+    .verifyPublic{
+        margin-top: 22%;
+    }
+
+    .verifyPublic h3{
+        font-size: 1.2em;
+        margin-bottom: 15%;
+    }
+
+    /*FIN ESTILOS VERIFY PUBLIC SCREEN*/
+
+    /*VERIFY HASH PUBLIC SCREEN*/
+    .VerifyHashPublic{
+        margin-top: 18%;
+        margin-bottom: 30%;
+    }
+    /*FIN ESTILOS HASH PUBLIC*/  
+
+    /*FORMULARIO LOGIN*/
+    .login{
+        margin-top: 20%;
+        margin-bottom: 17%;
+        width: 60%;
+    }
+    /*FIN ESTILOS FORMULARIO LOGIN*/
+
+    /*FORMULARIO REGISTRO*/
+    .form{
+        margin-bottom: 25%;
+    }
+    /*FIN ESTILOS FORMULARIO REGISTRO*/
+
+    
+    /*DASHBOARD*/
+    .dashboard{
+        margin-top: 10%;
+    }
+    /*FIN ESTILOS DASHBOARD*/
+
+    /*PROTECT HISTORY*/
+    .historyProtect{
+        margin-top: 12%;
+    }
+
+    .history table{
+        margin-left: -50px;
+        font-size: .5em;
+    }
+    /*FIN ESTILOS PROTECT HISTORY*/
+
+    /*CONFIG SCREEN*/
+    .config{
+        margin-top: 12%;
+    }
+
+    .formularioUpdate{
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .formularioUpdate img{
+        width: 20vw;
+    }
+
+    .passwordBtn{
+        margin: 0 auto;
+        margin-top: 30%;
+        width: 80%;
+        display: block;
+    }
+
+    #infoZone{
+        font-size: .9em;
+    }
+    /*FIN ESTILOS CONFIG SCREEN*/
+
+    /*UPDATE SCRREN*/
+    .updatePassword{
+        margin-top: 12%;
+        width: 90%; 
+    }
+
+    .updateContent{
+        width: 80%;
+        margin-top: 5%;
+    }
+
+    .updatePassword input{
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    .updatePassword button{
+        margin-top: 15%;
+        width: 80%;
+    }
+    /*FIN ESTILOS UPDATE SCREEN*/
+
+    /*VALIDAR EMAIL*/
+    .validarEmail{
+        margin-top: 20%;
+        height: 75vh;
+    }
+
+    .validarEmail a{
+        font-size: 1.2em;
+    }
+    /*FIN ESTILOS VALIDAR EMAIL*/
+
+    /*PROTECT SCREEN*/
+    .protect-zone{
+        margin-top: 12%;
+    }
+    /*FIN ESTILOS PROTECT SCREEN*/
+    
+}
+
+@media screen and (max-width: 480px) {
+    /*HOME PAGE*/
+
+    .principal{
+        margin-top: 20%;
+    }
+
+    .principal h1{
+        font-size: 60px;
+    }
+
+    .principal p{
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .why p{
+        font-size: 20px;
+    }    
+    /*FIN ESTILOS HOME PAGE*/   
+
+    /*FORMULARIO LOGIN*/
+    .login{
+        margin-top: 30%;
+        margin-bottom: 26%;
+        width: 90%;
+    }
+
+    .formLogin{
+        margin-bottom: 13%;
+    }
+    /*FIN ESTILOS FORMULARIO LOGIN*/
+
+    /*FORMULARIO REGISTRO*/
+    .formulario{
+        margin-top: 25%;
+        width: 90%;
+    }
+
+    .form{
+        margin-bottom: 40%;
+        height: 65vh;
+        width: 90%;
+    }
+    /*FIN ESTILOS FORMULARIO REGISTRO*/
+
+    /*VERIFY PUBLIC SCREEN*/
+    .verifyPublic{
+        margin-top: 30%;
+        margin-left: 0;
+        margin-bottom: 26%;
+        height: 60vh;
+        width: 100vw;
+    }
+
+    .verifyPublic h3{
+        opacity: 0;
+    }
+
+    .verifyPublic p{
+        margin-top: 15%;
+    }
+    /*FIN ESTILOS VERIFY PUBLIC SCREEN*/
+
+    /*VERIFY HASH PUBLIC SCREEN*/
+    .VerifyHashPublic{
+        margin-top: 26%;
+        font-size: .9em;
+        margin-bottom: 55%;
+    }
+    /*FIN ESTILOS HASH PUBLIC*/ 
+
+
+    /*SIDEBAR*/
+    .navigationUser{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigationUser.active{
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle{
+        z-index: 1001;
+    }
+
+    .main.active .toggle{
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
+    /*FIN ESTILOS SIDE BAR*/
+
+    /*DASHBOARD*/
+    .dashboard{
+        margin-top: 15%;
+    }
+    /*FIN ESTILOS DASHBOARD*/
+
+    /*PROTECT HISTORY*/
+    .historyProtect{
+        margin-top: 16%;
+        margin-bottom: 22%;
+    }
+
+    .history table{
+        margin-left: -35px;
+        font-size: .9em;
+    }
+
+    #hashTable{
+        display: none;
+    }
+    /*FIN ESTILOS PROTECT HISTORY*/
+
+    /*CONFIG SCREEN*/
+    .config{
+        margin-top: 20%;
+    }
+
+    .updateUSer{
+        margin: 0 auto;
+        width: 90vw;
+    }
+
+    .formularioUpdate{
+        width: 90%;
+    }
+
+    .formularioUpdate img{
+        width: 45vw;
+    }
+
+    .passwordBtn{
+        margin: 0 auto;
+        margin-top: 30%;
+        width: 80%;
+        display: block;
+    }
+
+    #infoZone p{
+        font-size: .9em;
+        overflow-x: scroll;
+    }
+
+    /*FIN ESTILOS CONFIG SCREEN*/
+
+    
+    /*UPDATE SCRREN*/
+    .updatePassword{
+        margin-top: 18%;
+        width: 98%;
+    }
+
+    .updateContent{
+        width: 100%;
+    }
+
+    .updatePassword input{
+        width: 100%;
+    }
+
+    .updatePassword button{
+        width: 100%;
+    }
+    /*FIN ESTILOS UPDATE SCREEN*/
+
+    /*VALIDAR EMAIL*/
+    .validarEmail{
+        margin-top: 26%;
+        height: 80vh;
+    }
+
+    .validarEmail h4{
+        font-size: 1.5em;
+        margin-top: 15%;
+    }
+
+    .validarEmail ion-icon{
+        font-size: 10em;
+    }
+
+    .validarEmail a{
+        font-size: 1.2em;
+        width: 60vw;
+    }
+    /*FIN ESTILOS VALIDAR EMAIL*/
+
+    /*PROTECT SCREEN*/
+    .protect-zone{
+        margin-top: 20%;
+        width: 80vw;
+    }
+
+    .dropZone{
+        margin: 0 auto;
+    }
+
+    .dropZone p{
+        font-size: 1.5em;
+        margin-bottom: 10%;
+    }
+
+    .dropZone input{
+        width: 50vw !important;
+        font-size: .9em;
+        
+    }
+
+    #btnProtect{
+        width: 60vw;
+    }
+
+    /*FIN ESTILOS PROTECT SCREEN*/
+}
+/*
+.protect-zone{
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 70%;
+    height: 100vh;
+}
+
+
+#btnProtect{
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 25%;
+    width: 30%;
+    height: 5vh;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+*/
